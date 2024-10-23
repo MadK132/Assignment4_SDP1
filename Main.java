@@ -95,6 +95,38 @@ public class Main {
 
         circle.accept(areaCalculator);
         rectangle.accept(areaCalculator);
+
+
+
+        ReportGenerator pdfReport = new PDFReportGenerator();
+        ReportGenerator htmlReport = new HTMLReportGenerator();
+
+        System.out.println("Generating PDF report:");
+        pdfReport.generateReport();
+
+        System.out.println("Generating HTML report:");
+        htmlReport.generateReport();
+
+
+        Playlist playlist = new Playlist();
+        playlist.addSong(new Song("Song A", "Pop"));
+        playlist.addSong(new Song("Song B", "Rock"));
+        playlist.addSong(new Song("Song C", "Jazz"));
+        playlist.addSong(new Song("Song D", "Classical"));
+
+        System.out.println("Sequential Order:");
+        Iterator sequentialIterator = playlist.createSequentialIterator();
+        while (sequentialIterator.hasNext()) {
+            Song song = sequentialIterator.next();
+            System.out.println("Playing: " + song.getTitle() + " (" + song.getGenre() + ")");
+        }
+
+        System.out.println("\nShuffle Order:");
+        Iterator shuffleIterator = playlist.createShuffleIterator();
+        while (shuffleIterator.hasNext()) {
+            Song song = shuffleIterator.next();
+            System.out.println("Playing: " + song.getTitle() + " (" + song.getGenre() + ")");
+        }
     }
 }
 
