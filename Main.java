@@ -85,6 +85,16 @@ public class Main {
 
         doc.restore(versionControl.getVersion(1));
         System.out.println("Restored to Version 2: " + doc.read());
+
+
+
+        Shape circle = new Circle(5);
+        Shape rectangle = new Rectangle(4, 6);
+
+        Visitor areaCalculator = new AreaCalculator();
+
+        circle.accept(areaCalculator);
+        rectangle.accept(areaCalculator);
     }
 }
 
