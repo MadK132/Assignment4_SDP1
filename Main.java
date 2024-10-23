@@ -48,6 +48,22 @@ public class Main {
 
         order.setState(new ShippedOrder());
         order.processOrder();
+
+
+
+        Approver teamLead = new TeamLead();
+        Approver manager = new Manager();
+        Approver director = new Director();
+        Approver ceo = new CEO();
+
+        teamLead.setNextApprover(manager);
+        manager.setNextApprover(director);
+        director.setNextApprover(ceo);
+
+        teamLead.approveExpense(500);    // Should be approved by Team Lead
+        teamLead.approveExpense(3000);   // Should be approved by Manager
+        teamLead.approveExpense(8000);   // Should be approved by Director
+        teamLead.approveExpense(15000);  // Should be approved by CEO
     }
 }
 
