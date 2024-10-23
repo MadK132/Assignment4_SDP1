@@ -22,6 +22,21 @@ public class Main {
 
         station.setWeatherData(80, 65, 30.4f);
         station.setWeatherData(82, 70, 29.2f);
+
+
+        TV tv = new TV();
+        Light light = new Light();
+
+        Command tvOn = new TurnTVOn(tv);
+        Command dimLights = new DimLights(light);
+
+        RemoteControl remote = new RemoteControl();
+        remote.setCommand(0, tvOn);
+        remote.setCommand(1, dimLights);
+
+        remote.pressButton(0);
+        remote.pressButton(1);
+        remote.pressUndo();
     }
 }
 
