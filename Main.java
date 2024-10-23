@@ -64,6 +64,27 @@ public class Main {
         teamLead.approveExpense(3000);
         teamLead.approveExpense(8000);
         teamLead.approveExpense(15000);
+
+
+
+        Document doc = new Document();
+        VersionControl versionControl = new VersionControl();
+
+        doc.write("Version 1");
+        versionControl.saveVersion(doc.save());
+
+        doc.write("Version 2");
+        versionControl.saveVersion(doc.save());
+
+        doc.write("Version 3");
+
+        System.out.println("Current Content: " + doc.read());
+
+        doc.restore(versionControl.getVersion(0));
+        System.out.println("Restored to Version 1: " + doc.read());
+
+        doc.restore(versionControl.getVersion(1));
+        System.out.println("Restored to Version 2: " + doc.read());
     }
 }
 
