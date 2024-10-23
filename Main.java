@@ -37,7 +37,17 @@ public class Main {
         remote.pressButton(0);
         remote.pressButton(1);
         remote.pressUndo();
+
+
+        Order order = new Order();
+
+        order.processOrder();
+
+        order.setState(new PaidOrder());
+        order.processOrder();
+
+        order.setState(new ShippedOrder());
+        order.processOrder();
     }
 }
-
 
