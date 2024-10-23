@@ -60,10 +60,10 @@ public class Main {
         manager.setNextApprover(director);
         director.setNextApprover(ceo);
 
-        teamLead.approveExpense(500);    // Should be approved by Team Lead
-        teamLead.approveExpense(3000);   // Should be approved by Manager
-        teamLead.approveExpense(8000);   // Should be approved by Director
-        teamLead.approveExpense(15000);  // Should be approved by CEO
+        teamLead.approveExpense(500);
+        teamLead.approveExpense(3000);
+        teamLead.approveExpense(8000);
+        teamLead.approveExpense(15000);
     }
 }
 
